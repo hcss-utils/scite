@@ -1,6 +1,6 @@
-.PHONY: clean clean-build clean-jupyter clean-pyc 
+.PHONY: clean clean-build clean-pyc 
 
-clean: clean-build clean-jupyter clean-pyc
+clean: clean-build clean-pyc
 
 clean-build:
 	rm -fr build/
@@ -15,11 +15,3 @@ clean-pyc:
 	find . -name '*~' -exec rm -f {} +
 	find . -name '__pycache__' -exec rm -fr {} +
 
-clean-jupyter:
-	find . -name '*.ipynb_checkpoints' -exec rm -rf {} +
-
-lint: format 
-	flake8 src
-
-format: 
-	black src
