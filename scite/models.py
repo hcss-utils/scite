@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
-from typing import Any, Dict, List, String
+from typing import Any, AnyStr, Dict, List
 
 
-DOI = String
+DOI = AnyStr
 DOIs = List[DOI]
 JSON = Dict[str, Any]

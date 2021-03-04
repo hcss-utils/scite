@@ -40,7 +40,7 @@ def get_papers_by_target(target_doi: DOI) -> JSON:
     return remote_call(endpoint=f"papers/sources/{target_doi}")
 
 
-def get_papers(dois: List[DOI]) -> JSON:
+def get_papers(dois: DOIs) -> JSON:
     """Get multiple papers.
     Up to 500 papers can be requested at once by passing in a list of DOIs
 
