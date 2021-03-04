@@ -1,11 +1,11 @@
 from setuptools import setup, find_packages
 
 setup(
-    name='package name',
+    name='scite',
     version='1.0.0',
-    url='https://github.com/mypackage.git',
-    author='Author Name',
-    author_email='author@gmail.com',
-    description='Description of my package',
+    url='https://github.com/hcss-utils/scite-wrapper.git',
+    author='HTU',
+    author_email='hcssteamukraine@gmail.com',
+    description='scite_ pythons wrapper',
     packages=find_packages(),    
 )
