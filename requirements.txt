@@ -2,6 +2,6 @@
 -e .
 
 # external
-requests==2.25.1
+requests==2.26.0
 ratelimit==2.2.1
 pydantic==1.8.2
