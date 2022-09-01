@@ -4,4 +4,4 @@
 # external
 requests==2.26.0
 ratelimit==2.2.1
-pydantic==1.9.0
+pydantic==1.10.1
