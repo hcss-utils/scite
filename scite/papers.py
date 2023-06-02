@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
-from .models import DOI, DOIs
 from .http_utils import remote_call
 from .logging_utils import set_logger
+from .models import DOI, DOIs
 
 logger = set_logger("Papers")
 
@@ -37,7 +37,7 @@ def get_papers_by_target(target_doi: DOI):
     Notes
     -----
     Docs: https://api.scite.ai/docs#operation/get_target_sources_papers_sources__target_doi__get
-    """
+    """  # noqa
     if not isinstance(target_doi, DOI):
         target_doi = DOI(id=target_doi).id
     logger.debug(f"Calling https://api.scite.ai/papers/{target_doi}")
@@ -64,6 +64,8 @@ def get_papers(dois: DOIs):
     if not isinstance(dois, DOIs):
         items = DOIs(ids=[{"id": item} for item in dois])
         dois = {item.id for item in items.ids}
-    logger.debug(f"Calling https://api.scite.ai/papers with a payload of {len(dois)} papers")
-    return remote_call(endpoint="papers", payload=[*dois])
-
+    logger.debug(
+        f"Calling https://api.scite.ai/papers with a payload of {len(dois)} papers"
+    )
+    response = remote_call(endpoint="papers", payload=[*dois])
+    return response.json()

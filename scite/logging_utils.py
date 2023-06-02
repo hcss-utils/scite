@@ -3,7 +3,7 @@ import logging
 
 
 def set_logger(name: str) -> logging.Logger:
-    """ Enable custom logger `name`"""
+    """Enable custom logger `name`"""
     logger = logging.getLogger(name)
     logger.setLevel(logging.DEBUG)
     sh = logging.StreamHandler()

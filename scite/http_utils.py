@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 import requests
-from ratelimit import limits, sleep_and_retry
+from ratelimit import limits, sleep_and_retry  # type: ignore
 
 
 @sleep_and_retry
@@ -10,8 +10,9 @@ def remote_call(
     url: str = "https://api.scite.ai",
     payload: dict = {},
     params: dict = {},
-):
+) -> requests.Response:
     """Make a generic GET request with ratelimits applied."""
-    r = requests.get(f"{url}/{endpoint}", json=payload, params=params)
-    r.encoding = "UTF-8"
-    return r.json()
+    response = requests.get(f"{url}/{endpoint}", json=payload, params=params)
+    response.encoding = "UTF-8"
+    response.raise_for_status()
+    return response
